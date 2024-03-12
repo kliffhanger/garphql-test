@@ -27,4 +27,12 @@ export const typeDefs = `#graphql
         articles: [Article]
         article(id: ID!): Article
     }
+    type Mutation{
+        deleteCategory(id: ID!): [Category]
+        addCategory(category: AddCategoryInput): Category
+    }
+    input AddCategoryInput{
+        name: String!
+        info: String!
+    }
 `

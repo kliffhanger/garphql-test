@@ -43,6 +43,20 @@ const resolvers = {
         articles(parent){
             return db.articles.filter((a)=> a.category_id === parent.id)
         }
+    },
+    Mutation:{
+        deleteCategory(_, args){
+            db.categories = db.categories.filter((c)=> c.id !== args.id)
+            return db.categories
+        },
+        addCategory(_, args){
+            let cat = {
+                ...args.category,
+                id: Math.floor(Math.random()*100).toString()
+            }
+            db.categories.push(cat)
+            return cat
+        }
     }
 }
 
