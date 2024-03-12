@@ -25,6 +25,24 @@ const resolvers = {
         article(_, args){
             return db.articles.find((item)=> item.id === args.id)
         }
+    },
+    Article:{
+        author(parent){
+            return db.authors.find((a)=> a.id === parent.author_id)
+        },
+        category(parent){
+            return db.categories.find((c)=> c.id === parent.category_id)
+        }
+    },
+    Author:{
+        articles(parent){
+            return db.articles.filter((a)=> a.author_id === parent.id)
+        }
+    },
+    Category:{
+        articles(parent){
+            return db.articles.filter((a)=> a.category_id === parent.id)
+        }
     }
 }
 

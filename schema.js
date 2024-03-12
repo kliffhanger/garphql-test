@@ -3,11 +3,13 @@ export const typeDefs = `#graphql
         id: ID!
         name: String!
         info: String!
+        articles: [Article!]
     }
     type Category{
         id: ID!
         name: String!
         info: String!
+        articles: [Article!]
     }
     type Article{
         id: ID!
