@@ -30,9 +30,14 @@ export const typeDefs = `#graphql
     type Mutation{
         deleteCategory(id: ID!): [Category]
         addCategory(category: AddCategoryInput): Category
+        updateCategory(id: ID!, category: UpdateCategoryInput!): Category
     }
     input AddCategoryInput{
         name: String!
         info: String!
+    }
+    input UpdateCategoryInput{
+        name: String
+        info: String
     }
 `

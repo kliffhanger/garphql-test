@@ -56,6 +56,15 @@ const resolvers = {
             }
             db.categories.push(cat)
             return cat
+        },
+        updateCategory(_, args){
+             db.categories = db.categories.map((c)=>{
+                if(c.id === args.id){
+                    return {...c, ...args.category}
+                }
+                return c
+            })
+            return db.categories.find((c)=> c.id === args.id)
         }
     }
 }
